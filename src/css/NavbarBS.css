@@ -1,0 +1,14 @@
+#offcanvasNavbar-expand-sm{
+    width: 80%;
+}
+
+img{
+    width: 4.5rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar-toggler{
+        order:-1;
+    }
+}
