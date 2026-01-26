@@ -1,9 +1,10 @@
 import '../css/NavbarBS.css'
 
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import {Nav, Navbar, Image} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+
+import { NavLink } from 'react-router-dom';
 
 import CartWidget from './CartWidget'
 
@@ -12,12 +13,8 @@ const NavbarBS =()=>{
         <div>
             <Navbar collapseOnSelect expand="sm" className="bg-body-tertiary">
               <Container fluid>
-                <Navbar.Brand href="#home" className='logo'>
-                    <img 
-                        src='../img/logo.svg'
-                        className="d-inline-block align-top"
-                        alt="Los Simpsons logo"
-                    />{" "}
+                <Navbar.Brand as={NavLink} to='/' className='logo'>
+                  <Image src="/img/logo-tienda.png" alt='logo tienda' roundedCircle />
                 </Navbar.Brand>
                 
                 <Navbar.Toggle aria-controls='offcanvasNavbar-expand-sm' />
@@ -35,10 +32,10 @@ const NavbarBS =()=>{
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-around flex-grow-1 pe-3">
-                      <Nav.Link href="#personajes">Personajes</Nav.Link>
-                      <Nav.Link href="#episodios">Episodios</Nav.Link>
-                      <Nav.Link href="#lugares">Lugares</Nav.Link>
-                      
+                      <Nav.Link as={NavLink} to="/category/Figuras">Figuras</Nav.Link>
+                      <Nav.Link as={NavLink} to="/category/Peluches">Peluches</Nav.Link>
+                      <Nav.Link as={NavLink} to="/category/Ropa">Ropa</Nav.Link>
+                      <Nav.Link as={NavLink} to="/category/Accesorios">Accesorios</Nav.Link>
                     </Nav>
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
