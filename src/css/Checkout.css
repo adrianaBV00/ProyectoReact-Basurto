@@ -1,3 +1,21 @@
 .checkout-view{
     margin: 6.5rem 1.5rem;
 }
+
+.ok-order{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 1.5rem;
+    height: 60vh;
+}
+
+.ok-order h1{
+    font-size: 1.5rem;
+}
+
+.ok-order h4{
+    font-size: 0.9rem;
+}

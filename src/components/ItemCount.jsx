@@ -22,7 +22,7 @@ const ItemCount = ({stock, onAdd}) => {
     }
 
     const agregarCarrito = ()=>{
-        console.log("Se ha agregado al carrito")
+        // console.log("Se ha agregado al carrito")
         onAdd(counter)
     }
 

@@ -1,16 +1,13 @@
 import React from 'react'
 import '../css/Error.css'
-import { BiSolidErrorAlt } from "react-icons/bi";
+import { MdOutlineSyncProblem  } from "react-icons/md";
 
 const Error = () => {
   return (
     <div className='error'>
-        <div>
-            <h1><BiSolidErrorAlt /> Problemas técnicos</h1>
-        </div>
-        <div>
-            <h3>Intente más tarde</h3>
-        </div>
+        <MdOutlineSyncProblem size='6.5rem'/>
+        <h1>Ocurrió un Problema</h1>
+        <h3>Intente más tarde</h3>
         
     </div>
   )

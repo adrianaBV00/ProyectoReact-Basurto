@@ -61,11 +61,11 @@ const Checkout = () => {
         <div className='checkout-view'>
            {
                 orderId ?
-                <>
+                <div className='ok-order'>
                     <h1>Muchas gracias por su compra</h1>
-                    <h4>Su orden es: {orderId}</h4>
+                    <h4 >Su orden es: {orderId}</h4>
                     <Link  className='btn btn-danger'to={'/'}>Volver a home</Link>
-                </>
+                </div>
                 : <CheckoutForm handleOrder={handleOrder} />
            }
         </div>

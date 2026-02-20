@@ -26,6 +26,7 @@ const CheckoutForm = ({handleOrder=()=>{}}) => {
   return (
     <div className='checkout-form'>
         <h1>Checkout Form</h1>
+        <hr />
         <Formik
             validationSchema={schema}
             onSubmit={(values)=>handleOrder(values)}

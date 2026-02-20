@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import {Image, Row, Col} from 'react-bootstrap';
 import ItemCount from './ItemCount';
 import '../css/ItemDetail.css'
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 
 const ItemDetail = ({detail}) => {
-    const {id, nombre, imagen, detalle, categoria, precio, moneda, rating, sku, especificaciones, contenido_caja} = detail
+    const {nombre, imagen, detalle, precio, moneda, rating, especificaciones, contenido_caja} = detail
     const {addCart,stockItem}=useCart()
     const [comprado, setComprado ]= useState(false)
     const onAdd = (counter)=>{
@@ -15,7 +15,7 @@ const ItemDetail = ({detail}) => {
         setComprado(true)
     }
 
-    console.log(stockItem(detail))
+    // console.log(stockItem(detail))
     
     
 
@@ -40,7 +40,7 @@ const ItemDetail = ({detail}) => {
                             <p className='item-precio'>${parseFloat(precio).toFixed(2)} <span>{moneda}</span></p>
                             {detail?.anime && <p>{detail.anime}</p>}
                             {detail?.coleccion && <p>{detail.coleccion}</p>}
-                            {stockItem(detail) ? <p className='item-stock'>Solo quedan: <span>{stockItem(detail)} pzs</span></p>:<></>}
+                            {stockItem(detail) ? <p className='item-stock'>Solo {stockItem(detail)>1?'quedan':'queda'}: <span>{stockItem(detail)} {stockItem(detail)>1?'piezas':'pieza'}</span></p>:<></>}
                             <hr />
                             {
                                 comprado ?
@@ -66,7 +66,7 @@ const ItemDetail = ({detail}) => {
                         <hr />
                         <ul>
                             {Object.entries(especificaciones).map(([key,value])=>(
-                                <li id={key}>{key.toUpperCase()}: {value}</li>
+                                <li key={key}>{key.toUpperCase()}: {value}</li>
                             ))}
 
                         </ul>

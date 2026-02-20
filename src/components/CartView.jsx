@@ -35,7 +35,7 @@ const CartView = () => {
             <CartList/>
 
             <div className='total-pagar'>
-                <span>Total a pagar: ${total()} MXN</span>
+                <p>Total a pagar:  <span>${parseFloat(total()).toFixed(2)}</span> MXN</p>
             </div>
             <div className='cart-botones'>
                 <Button onClick={handleVaciarCarrito}>Vaciar carrito</Button>
