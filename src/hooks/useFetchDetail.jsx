@@ -13,27 +13,23 @@ export const useFetchDetail = (id) => {
     const docRef = doc(db, "kamiCollections", id)
 
     useEffect(()=>{
-        const fetchDetail = setTimeout(()=>{
-            getDoc(docRef)
-                .then((res)=>{
-                    if(res.exists()){
-                        setDetail({id:id, ... res.data()})
-                    }
-                    else{
-                        setInvalid(true)
-                    }
-                
-                })
-                .catch((error)=>{
-                    console.log(error)
-                    navigate("/error")
-                })
-                .finally(()=>setLoading(false))
-
-        }, 2000)
+        getDoc(docRef)
+            .then((res)=>{
+                if(res.exists()){
+                    setDetail({id:id, ... res.data()})
+                }
+                else{
+                    setInvalid(true)
+                }
+            
+            })
+            .catch((error)=>{
+                console.log(error)
+                navigate("/error")
+            })
+            .finally(()=>setLoading(false))
 
         return () => {
-            clearTimeout(fetchDetail);
             setLoading(true)
         }
 

@@ -28,24 +28,21 @@ const Checkout = () => {
             date: serverTimestamp()
         }
         const ventas = collection(db,"orders")
-        setTimeout(()=>{
-            addDoc(ventas, order)
-                .then((res)=>{
-                    setOrderId(res.id)
-                    clearCart()
-                })
-                .catch((error)=>{
-                    console.log(error)
-                    Swal.fire({
-                      icon: "error",
-                      title: "Ocurrió un Error",
-                      text: "Intente más tarde!"
-                    });
-                    navigate('/cart')
-                })
-                .finally(()=>setProcess(false))
-
-        },2000)
+        addDoc(ventas, order)
+        .then((res)=>{
+            setOrderId(res.id)
+            clearCart()
+        })
+        .catch((error)=>{
+            console.log(error)
+            Swal.fire({
+              icon: "error",
+              title: "Ocurrió un Error",
+              text: "Intente más tarde!"
+            });
+            navigate('/cart')
+        })
+        .finally(()=>setProcess(false))
         
         
     }

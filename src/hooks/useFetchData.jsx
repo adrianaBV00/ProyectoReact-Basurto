@@ -14,27 +14,23 @@ export const useFetchData = (type,destacado) => {
                             ( type ? query(collection(db,"kamiCollections"), where("categoria","==",type)) : collection(db,"kamiCollections"))
 
     useEffect(()=>{
-        const fetchData = setTimeout(()=>{
-            getDocs(prodCollection)
-            .then((res)=>{
-                const list = res.docs.map((doc)=>{
-                    return{
-                        id:doc.id,
-                        ... doc.data()
-                    }
-                })
-                setData(list)
+        getDocs(prodCollection)
+        .then((res)=>{
+            const list = res.docs.map((doc)=>{
+                return{
+                    id:doc.id,
+                    ... doc.data()
+                }
             })
-            .catch((error)=>{
-                console.log(error)
-                navigate('/error')
-            })
-            .finally(()=>setLoading(false))
-
-        }, 2000)
+            setData(list)
+        })
+        .catch((error)=>{
+            console.log(error)
+            navigate('/error')
+        })
+        .finally(()=>setLoading(false))
 
         return () => {
-            clearTimeout(fetchData);
             setLoading(true)
         }
 
