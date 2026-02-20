@@ -15,10 +15,6 @@ Este proyecto fue realizado para enseñar las bases de react con JS en CoderHous
 >Es necesario contar con Node v22.11.0 instalado
 
 
-### Version Host 💻
-
-Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder App](https://kamiCollectionsReact.vercel.app/)
-
 
 ### Librerias utilizadas en el proyecto 📖
 
