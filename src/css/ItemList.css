@@ -1,6 +1,31 @@
+.containerList{
+    margin: 6.5rem auto;
+    padding: auto;
+}
+
+.title{
+    margin: 3.5rem auto 2.5rem;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #D00000;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 15%;
+}
 .itemList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .title{
+        font-size: 1.3rem;
+    }
+    .itemList{
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+        gap: 1.5rem;
+    }
 }

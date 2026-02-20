@@ -3,22 +3,21 @@ import { useParams } from 'react-router-dom'
 import { getOneProduct } from '../mocks/data'
 import ItemDetail from './ItemDetail'
 import { Container } from 'react-bootstrap'
+import { useFetchDetail } from '../hooks/useFetchDetail'
+import Loading from './Loading'
 
 export const ItemDetailContainer = () => {
-    const [data, setData] = useState({})
     const {id} = useParams()
+    const {detail, loading, invalid} = useFetchDetail(id)
 
-    useEffect(()=>{
-        getOneProduct(id)
-            .then((res)=>setData(res))
-            .catch((error)=>console.log(error))
-
-    },[id])
-    console.log(data)
+    console.log(detail)
 
   return (
     <Container>
-        <ItemDetail detail={data} />
+      {
+        loading ? <Loading/> : <ItemDetail detail={detail} />
+      }
+        
     </Container>
   )
 }

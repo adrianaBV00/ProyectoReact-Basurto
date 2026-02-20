@@ -1,3 +1,26 @@
 .item{
     margin: 10px;
 }
+.imageItem{
+    background-image: linear-gradient(to bottom right, #370617, #DC2F02);
+
+    & ::hover{
+        color: #DC2F02;
+    }
+}
+
+.card-title{
+    font-size: 1rem;
+    font-weight: 700;
+    color: gainsboro;
+}
+.precio{
+    padding-left: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: white;
+    /* text-decoration: overline solid #FFBA08 15%; */
+}
+.btn-detalle{
+    width: 100%;
+}

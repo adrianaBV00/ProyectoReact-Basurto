@@ -1,14 +1,24 @@
 #offcanvasNavbar-expand-sm{
     width: 80%;
+    padding-left: 1.5rem;
 }
 
-img{
-    width: 4.5rem;
+.logo{
+    width: 2.5rem;
+}
+
+.navbarOption.nav-link.active{
+    border-bottom: 3px solid #D00000;
+    border-radius: 10px;
 }
 
 
 @media screen and (max-width: 768px) {
     .navbar-toggler{
         order:-1;
+    }
+    .navbarOption.nav-link.active{
+        text-decoration: underline solid #D00000 25%;
+        border-bottom: none;
     }
 }

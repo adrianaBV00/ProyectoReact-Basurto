@@ -1,27 +1,31 @@
-import {Container, Row} from 'react-bootstrap';
-import { getProducts } from '../mocks/data';
-import { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import '../css/ItemListContainer.css'
+import { useFetchData } from '../hooks/useFetchData';
+import Loading from './Loading';
 
 const ItemListContainer = ({titulo})=>{
-    const [data, setData] = useState([]);
     const {type} = useParams()
+    const {data, loading} = useFetchData(type)
 
-    useEffect(()=>{
-        getProducts(type)
-            .then((res)=>setData(res))
-            .catch((error)=>console.log(error))
+    // useEffect(()=>{
+    //     getDocs(collection(db, 'kamiCollections'))
+    //         .then((res)=>res.forEach((doc)=>console.log(doc.id, "=>", doc.data())))
+    //         .catch((error)=>console.log(error))
 
-    },[type])
-    console.log(data)
+    // },[type])
 
+    // console.log(type)
+    const title = type ? "" : "Productos KamiCollections"
     return(
-        <Container fluid className='container'>
-            <h1>{titulo}</h1>
-            <ItemList data={data}/>
-        </Container>
+        <>
+            {loading ? <Loading></Loading>
+                :
+                <>
+                    <ItemList data={data} title={title}/>
+                </>
+            
+            }
+        </>
     )
 }
 

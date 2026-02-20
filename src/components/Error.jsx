@@ -6,10 +6,10 @@ const Error = () => {
   return (
     <div className='error'>
         <div>
-            <h1><BiSolidErrorAlt /> Error 404</h1>
+            <h1><BiSolidErrorAlt /> Problemas técnicos</h1>
         </div>
         <div>
-            <h3>Pagina no encontrada</h3>
+            <h3>Intente más tarde</h3>
         </div>
         
     </div>

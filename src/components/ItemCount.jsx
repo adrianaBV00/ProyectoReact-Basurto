@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { MdAddShoppingCart } from "react-icons/md";
+import '../css/ItemCount.css'
 import { TiPlus } from "react-icons/ti";
 import { FaMinus } from "react-icons/fa";
-
+import { Link } from 'react-router-dom';
 import { Button, Stack, Col } from 'react-bootstrap'
-const ItemCount = ({stock}) => {
+
+const ItemCount = ({stock, onAdd}) => {
     const [counter, setCounter] = useState(1)
+
 
     const aumentar = ()=>{
         if(counter<stock){
@@ -21,29 +23,28 @@ const ItemCount = ({stock}) => {
 
     const agregarCarrito = ()=>{
         console.log("Se ha agregado al carrito")
+        onAdd(counter)
     }
 
-
+    if(!stock){
+        return(
+            <>
+                <Button disabled>AGOTADO</Button>
+            </>
+        )
+    }
+    
 
   return (
-    <Stack direction='horizontal' gap={3}>
-        <div>
-            <Button className='btn btn-sm' onClick={disminuir} disabled={counter===1}><FaMinus /></Button>
-        </div>
-        <div>
-            <span>{counter}</span>
-        </div>
-        <div>
-            <Button className='btn btn-sm' onClick={aumentar} disabled={counter===stock}><TiPlus /></Button>
-        </div>
-        <div>
-            <Button className='btn btn-sm' onClick={agregarCarrito} disabled={counter===0}>Agregar <MdAddShoppingCart /></Button>
-        </div>
+
+    <div className='itemCount'>
+        <Button className='btn btn-danger btn-sm' onClick={disminuir} disabled={counter<=1}><FaMinus /></Button>
+        <span>{counter}</span>
+        <Button className='btn btn-danger btn-sm' onClick={aumentar} disabled={counter===stock}><TiPlus /></Button>
+        <Button className='btn btn-danger btn-sm' onClick={agregarCarrito} disabled={counter===0}>AGREGAR AL CARRITO</Button>
         
-        
-        
-        
-    </Stack>
+    </div>
+    
   )
 }
 

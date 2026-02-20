@@ -1,0 +1,34 @@
+.cartEmpty{
+    margin: 5.5rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    height: 70vh;
+}
+
+.btn{
+    background-color: #6A040F;
+    border: 4px outset gold;
+    border-radius: 15px;
+
+    &:hover{
+        background-color: #9D0208;
+        border: 4px outset #FAA307;
+        border-radius: 15px;
+    }
+
+    &:disabled{
+        background-color: #9D0208;
+        border: 4px outset #FAA307;
+        border-radius: 15px;
+
+    }
+}
+
+
+.cartEmpty span{
+    font-weight: 500;
+}

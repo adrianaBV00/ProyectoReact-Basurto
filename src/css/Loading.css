@@ -1,0 +1,15 @@
+.loading{
+    margin: 5.5rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    height: 70vh;
+}
+
+.loading span{
+    font-weight: 600;
+}
+

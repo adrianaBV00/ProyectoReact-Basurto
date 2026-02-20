@@ -1,17 +1,15 @@
+import '../css/CartWidget.css'
 import { FaCartShopping } from "react-icons/fa6";
-import Badge from 'react-bootstrap/Badge';
+import Badge from '@mui/material/Badge';
+import { useCart } from "../context/CartContext";
 
 const CarWidget = ()=>{
-
+    const {articulosTotales} = useCart();
     return(
-        <div>
-            <FaCartShopping size='1.5rem' />
-            <span>
-                <Badge pill bg="danger">
-                    5
-                </Badge>
-            </span>
-            
+        <div className='cartWidget'>
+            <Badge badgeContent={articulosTotales()} color='error'>
+                <FaCartShopping size='1.5rem' color="white"/>
+            </Badge>            
         </div>
     )
 }

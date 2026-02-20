@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import '../css/Item.css'
 
 const Item = ({ producto }) => {
-    const { id, name, img, price,category } = producto;
+    const { id, nombre, imagen, precio,moneda} = producto;
     return (
-        <div className='item'>
-            <Card style={{ width: "15rem"}}>
-                <Card.Img variant="top" src={img}/>
+        <div classnombre='item'>
+            <Card style={{ width: "18rem"}} bg='dark'>
+                <Card.Img variant="top" src={imagen} className='imageItem'/>
                 <Card.Body>
-                    <Card.Title>{category.toUpperCase()}</Card.Title>
-                    <Card.Text>{name}</Card.Text>
-                    <Card.Text>
-                        ${parseFloat(price).toFixed(2)}
+                    <Card.Title>{nombre}</Card.Title>
+                    <Card.Text className='precio'>
+                        ${parseFloat(precio).toFixed(2)} {moneda}
                     </Card.Text>
-                    <Link className='btn btn-primary' to={`/item/${id}`}>Mas detalle</Link>
+                    <Link className='btn btn-danger btn-detalle' to={`/item/${id}`}>VER DETALLES</Link>
                 </Card.Body>
             </Card>
         </div>

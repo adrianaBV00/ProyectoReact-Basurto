@@ -1,0 +1,12 @@
+.cart-view{
+    margin: 6.5rem 1.8rem;
+    padding: auto 2.5rem;
+}
+.cart-title{
+    margin: 3.5rem auto 2.5rem;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: #D00000;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 15%;
+}

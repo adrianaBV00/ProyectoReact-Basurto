@@ -10,11 +10,11 @@ import CartWidget from './CartWidget'
 
 const NavbarBS =()=>{
     return(
-        <div>
-            <Navbar collapseOnSelect expand="sm" className="bg-body-tertiary">
-              <Container fluid>
-                <Navbar.Brand as={NavLink} to='/' className='logo'>
-                  <Image src="/img/logo-tienda.png" alt='logo tienda' roundedCircle />
+        <>
+            <Navbar collapseOnSelect expand="sm" className="bg-body-tertiary" bg="dark" data-bs-theme="dark" fixed='top'>
+              <Container>
+                <Navbar.Brand as={NavLink} to='/' >
+                  <Image src="/img/logo-tienda.png" alt='logo tienda' className='logo' />
                 </Navbar.Brand>
                 
                 <Navbar.Toggle aria-controls='offcanvasNavbar-expand-sm' />
@@ -32,18 +32,20 @@ const NavbarBS =()=>{
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-around flex-grow-1 pe-3">
-                      <Nav.Link as={NavLink} to="/category/Figuras">Figuras</Nav.Link>
-                      <Nav.Link as={NavLink} to="/category/Peluches">Peluches</Nav.Link>
-                      <Nav.Link as={NavLink} to="/category/Ropa">Ropa</Nav.Link>
-                      <Nav.Link as={NavLink} to="/category/Accesorios">Accesorios</Nav.Link>
+                      <Nav.Link as={NavLink} className='navbarOption' to="/category/Figura Anime">Figuras Anime</Nav.Link>
+                      <Nav.Link as={NavLink} className='navbarOption' to="/category/Carta Coleccionable">Cartas Coleccionables</Nav.Link>
+                      <Nav.Link as={NavLink} className='navbarOption' to="/category/destacado">Destacado</Nav.Link>
                     </Nav>
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
-                <CartWidget  className='carrito'/>
+                <Nav.Link as={NavLink} to="/cart">
+                  <CartWidget  className='carrito'/>
+                </Nav.Link>
+                
               </Container>
             </Navbar>            
             
-        </div>
+        </>
     )
 }
 
